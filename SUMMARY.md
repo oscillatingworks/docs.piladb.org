@@ -3,5 +3,5 @@
 * [Introduction](README.md)
 * [Installation](installation/README.md)
 * [Getting Started](getting_started/README.md)
-   * Usage
+   * [Usage](getting_started/usage.md)
 
