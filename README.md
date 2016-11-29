@@ -1,2 +1,3 @@
-# pilabook
-piladb documentation book.
+# piladb
+
+Welcome to the piladb documentation book.
