@@ -8,7 +8,4 @@ how to implement your own embedded database using the Go package.
 
 You can find all chapters in the [Table of Contents](#SUMMARY.md), so you can feel free to jump
 through them at your convenience. Although, it is recommended to read the whole
-documentation
-
-
-
+documentation to get a wider understanding on how **piladb** works.
