@@ -19,5 +19,8 @@ A **_Stack_** represents a linear data structure that contains _Element on the L
 * **SIZE**: Returns the size of the Stack.
 * **FLUSH**: Delete all Elements of the Stack, leaving it empty.
 
-An **_Element_** is a piece of data that can be pushed into a _Stack_ and 
+An **_Element_** is a piece of data that can be pushed into a _Stack_, and has a JSON compatible format. This means that you can push into a _Stack_ the following data types:
+
+* Numbers: Integer, Floating Point, Fraction, Exponent.
+* 
 
