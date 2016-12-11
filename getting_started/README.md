@@ -24,8 +24,10 @@ An **_Element_** is a piece of data that can be pushed into a _Stack_, and has a
 * Number: `42`, `3.14`, `.333`, `3.7E-5`.
 * String: `foo`, `PilaDB`, `\thello\nworld`, ` `, 💾.
 * Boolean: `true`, `false`.
-* Array: `["🍎","🍊","🍋"]`, `[{"foo":false}, true, 3, "bar"]`
-* Object: 
-* `null`
+* Array: `["🍎","🍊","🍋"]`, `[{"foo":false}, true, 3, "bar"]`.
+* Object: `{}`, `{"key": "Value"}`, `{"bob":{"age":32,"married":false,"comments":{}}}`.
+* `null`.
+
+
 
 
