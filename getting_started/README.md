@@ -35,7 +35,7 @@ A **_Database_** is an entity that contains _Stacks_. So every _Stack_ belongs a
 
 We'll know as **_Pila_** the super object that will contain and handle all _Databases_, _Stacks_ and _Elements_, as well as memory management, session handling and concurrent operations requests.
 
-**`pilad`** is the daemon program, or server, that will initialize the _Pila_,  exposing to external users an Interface to iterate with it: create _Databases_, create _Stacks_, PUSH or POP _Elements, etc.
+**`pilad`** is the daemon program, or server, that will initialize the _Pila_,  exposing to external users an Interface to iterate with it: create _Databases_, create _Stacks_, `PUSH` or `POP` _Elements_, etc.
 
 Above all these concepts, **piladb** represents the most important one. It is a project written in [Go](https://golang.org), hosted on [Github](https://github.com/fern4lvarez/piladb), that implements all these ideas, plus others like a configuration module, resources to work with Docker, or another internal packages.
 
