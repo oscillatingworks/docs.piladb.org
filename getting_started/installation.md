@@ -8,7 +8,7 @@ As a user of **piladb** you only need a HTTP client that lets interact with the 
 
 * Command line interface: [`curl`](https://curl.haxx.se/), [`httpie`](https://httpie.org/).
 * Graphical user interface:
-  * [Insomnia](https://insomnia.rest/) (Linux, Mac Windows)
+  * [Insomnia](https://insomnia.rest/) (Linux, Mac, Windows)
   * [Paw](https://paw.cloud/) (Mac)
   * [Postman](https://www.getpostman.com/) (web, Mac)
 * Programming languages: Every language should have a solid HTTP client that lets you interact programatically with **piladb**. A simple web search should point you into the right direction. For example, [HTTP clients for Ruby](http://lmgtfy.com/?q=ruby+http+client).
