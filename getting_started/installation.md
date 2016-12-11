@@ -21,7 +21,7 @@ As an admin, you want to manage `pilad`, the **piladb** server. In order to do t
 
 > Requirements: `unzip` or `tar` command line tools.
 
-All official **piladb** releases are hosted on Github. Find the latest release for your platform and architecture on [the Downloads list at the release page](https://github.com/fern4lvarez/piladb/releases/latest). They are available on `zip` and `tar.gz` formats.
+All official **piladb** releases are hosted on Github. Find the latest release for your platform and architecture in [the Downloads list at the release page](https://github.com/fern4lvarez/piladb/releases/latest). They are available on `zip` and `tar.gz` formats.
 
 #### zip
 
