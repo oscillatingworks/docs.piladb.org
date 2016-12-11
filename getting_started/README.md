@@ -21,6 +21,11 @@ A **_Stack_** represents a linear data structure that contains _Element on the L
 
 An **_Element_** is a piece of data that can be pushed into a _Stack_, and has a JSON compatible format. This means that you can push into a _Stack_ the following data types:
 
-* Numbers: Integer, Floating Point, Fraction, Exponent.
-* 
+* Number: `42`, `3.14`, `.333`, `3.7E-5`.
+* String: `foo`, `PilaDB`, `\thello\nworld`, ` `, 💾.
+* Boolean: `true`, `false`.
+* Array: `["🍎","🍊","🍋"]`, `[{"foo":false}, true, 3, "bar"]`
+* Object: 
+* `null`
+
 
