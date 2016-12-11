@@ -53,7 +53,7 @@ You will find the `pilad` binary file into `$GOPATH/bin` with the right permissi
 
 > Requirements: [Docker](https://www.docker.com/products/overview) installed.
 
-You can execute `pilad` from a Docker container, so you don't make a manual installation or depend on Go. With Docker configured, execute:
+You can execute `pilad` from a Docker container, so you don't to install or depend on Go. With Docker configured, execute:
 
 ```bash
 docker run -d --name piladb -p $PILADB_PORT:1205 fern4lvarez/piladb
