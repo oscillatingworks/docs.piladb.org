@@ -21,7 +21,7 @@ An **_Element_** is a piece of data that can be pushed into a _Stack_, and has a
 * Object: `{}`, `{"key": "Value"}`, `{"bob":{"age":32,"married":false,"comments":{}}}`.
 * `null`.
 
-A **_Stack_** represents a linear data structure that contains _Element_, based on the LIFO (_Last in, First out_) principle, and in which only these operations are allowed:
+A **_Stack_** represents a linear data structure that contains _Elements_, based on the LIFO (_Last in, First out_) principle, and in which only these operations are allowed:
 
 * **PUSH**: Introduces an Element into the Stack. 
 * **POP**: Removes the topmost Element of the Stack.
