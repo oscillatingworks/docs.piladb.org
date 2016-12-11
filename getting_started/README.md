@@ -8,7 +8,7 @@ Before installing **piladb**, it's worth to mention that it was designed and dev
 
 ## What is piladb?
 
-**piladb** is a database engine, which means that it's a tool that provides mechanisms to store data in a certain way. In the case of **piladb**, this way is by piling data **_Elements_** in **_Stacks_,** so you only have access to the _Element_ on top, keeping the rest of them underneath. 
+**piladb** is a database engine, which means that it's a tool that provides mechanisms to store data in a certain way. In the case of **piladb**, this way is by piling **_Elements_** in **_Stacks_,** so you only have access to the _Element_ on top, keeping the rest of them underneath. 
 
 ### Basic concepts
 
