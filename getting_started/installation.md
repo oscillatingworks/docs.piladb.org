@@ -88,7 +88,7 @@ Then you can run `make all` to check that everything is OK. Take a look at the [
 
 If you don't have or want Go installed in your machine, take the Docker way. This is not only valid for running `pilad` from a container as we've seen previously, but also to provide a development environment where you can work without modifying your host machine.
 
-The container comes with `vim` and `git` preinstalled, which is what you need for basic development. Run this steps to get a dev setup up and running:
+The container comes with `vim` and `git` preinstalled, which is what you might need for basic development. Run this steps to get a dev setup up and running:
 
 ```bash
 git clone https://github.com/fern4lvarez/piladb.git
