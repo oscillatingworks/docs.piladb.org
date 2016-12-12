@@ -23,9 +23,13 @@ As an admin, you want to manage `pilad`, the **piladb** server. In order to do t
 
 All official **piladb** releases are hosted on Github. Find the latest release for your platform and architecture in [the Downloads list at the release page](https://github.com/fern4lvarez/piladb/releases/latest). They are available on `zip` and `tar.gz` formats.
 
+| Linux | Mac |
+| -- | -- |
+| Coming soon | Coming soon |
+
 #### zip
 
-```basg
+```bash
 unzip piladb_OS_ARCH.zip
 ```
 
@@ -64,6 +68,26 @@ docker run -d --name piladb -p $PILADB_PORT:1205 fern4lvarez/piladb
 ```
 
 This will bootstrap a `pilad` instance, listening on a the Port number set with `$PILADB_PORT`.
+
+## For Developers 🔧
+
+> Requirements: [Go](https://golang.org/dl/) +1.6 installed and `GOPATH` setup.
+
+If you want to develop or play with **piladb** you need to download the source code using Go:
+
+```bash
+go get -u github.com/fern4lvarez/piladb/...
+cd $GOPATH/src/github.com/fern4lvarez/piladb
+```
+
+Then you can run `make all` to check that everything is OK. Take a look at the [`README.md`](https://github.com/fern4lvarez/piladb/blob/master/README.md) file, as it contains useful and important information for developers.
+
+### The Docker way
+
+> Requirements: [Docker](https://www.docker.com/products/overview) installed.
+
+If you don
+
 
 
 
