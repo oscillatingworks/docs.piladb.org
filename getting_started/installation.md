@@ -4,7 +4,7 @@ The process of installing **piladb** might differ depending on your role and pur
 
 ## For users 🙋
 
-As a user of **piladb** you only need a HTTP client that lets interact with the REST API database server, `pilad`. This a list of some of the most popular HTTP clients out there:
+As a user of **piladb** you only need a HTTP client that makes it possible to interact with the REST API of the database server, `pilad`. This a list of some of the most popular HTTP clients out there:
 
 * Command line interface: [`curl`](https://curl.haxx.se/), [`httpie`](https://httpie.org/).
 * Graphical user interface:
@@ -43,7 +43,7 @@ When you uncompress the file, you will find inside the resulting directory a `pi
 
 ### Go installer
 
-> Requirements: [Go](https://golang.org/dl/) +1.6 installed and `GOPATH` setup.
+> Requirements: `git` and [Go](https://golang.org/dl/) +1.6 installed, and `GOPATH` setup.
 
 Download and install the project with:
 
@@ -71,7 +71,7 @@ This will bootstrap a `pilad` instance, listening on a the Port number set with 
 
 ## For Developers 🔧
 
-> Requirements: [Go](https://golang.org/dl/) +1.6 installed and `GOPATH` setup.
+> Requirements: `git` and [Go](https://golang.org/dl/) +1.6 installed, and `GOPATH` setup.
 
 If you want to develop or play with **piladb** you need to download the source code using Go:
 
@@ -84,9 +84,24 @@ Then you can run `make all` to check that everything is OK. Take a look at the [
 
 ### The Docker way
 
-> Requirements: [Docker](https://www.docker.com/products/overview) installed.
+> Requirements: `git` and [Docker](https://www.docker.com/products/overview) installed.
 
-If you don
+If you don't have or want Go installed in your machine, take the Docker way. This is not only valid for running `pilad` from a container as we've seen previously, but also to provide a development environment where you can work without modifying your host machine.
+
+The container comes with `vim` and `git` preinstalled, which is what you need for basic development. Run this steps to get a dev setup up and running:
+
+```bash
+git clone https://github.com/fern4lvarez/piladb.git
+cd piladb
+cd dev
+make run  # will start piladb container
+make bash  # connect into the container
+```
+
+You are in! Now run `ls -al`, `vim` or `make all` to check that you have indeed all you need inside the container.
+
+
+
 
 
 
