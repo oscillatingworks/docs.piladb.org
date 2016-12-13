@@ -130,7 +130,7 @@ curl -XPUT localhost:1205/databases/MY_DATABASE/stacks?name=BOOKSHELF
 
 As an output we get the _Stack_ in JSON format. The bookshelf if empty and there's no book on top that we can pick-up.
 
-### `PUSH` and `POP` on a Stack
+### `PUSH`, `PEEK` and `POP` on a Stack
 
 Let's add a book into the bookshelf by doing a `PUSH` operation.
 
@@ -161,7 +161,32 @@ We can get this status anytime by requesting our _Stack_:
 curl localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF
 ```
 
-We want to read _1984_, but we come up with another book that we want to read. So we add it with another `PUSH` operation:
+We want to read _1984_, but in the meantime we come up with another book that we'd like to read before. So we add it with another `PUSH` operation:
+
+```
+curl -XPOST localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF \     
+  -d '{"element":{"title":"The Metamorphosis","author":"Franz Kafka","ISBN":"9780486290300","comments":["🐞"]}}'
+```
+
+Now we have two books, and we have to start reading them from top to bottom. To find out which element is on top, we use the `PEEK` operation:
+
+```bash
+curl localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF?peek
+```
+
+```json
+{
+  "element": {
+    "title": "The Metamorphosis",
+    "comments": [
+      "🐞"
+    ],
+    "author": "Franz Kafka",
+    "ISBN": "9780486290300"
+  }
+}
+
+```
 
 
 
