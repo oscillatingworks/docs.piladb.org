@@ -88,7 +88,7 @@ curl localhost:1205/databases/MY_DATABASE
 }
 ```
 
-> 🔝 **_Protip!_** Install [`jq`](https://stedolan.github.io/jq/) to print and process the JSON responses.
+> 🔝 **_Protip!_** Install [`jq`](https://stedolan.github.io/jq/) to pretty print and process the JSON responses.
 
 Also, we can list all existing databases:
 
@@ -110,6 +110,33 @@ curl localhost:1205/databases
 ```
 
 ### Create a Stack
+
+We created a _Database_, this means we can start creating _Stacks_. The process is very similar to the one of creating _Databases_. We just need to provide the _Database_ and the name of the _Stack_.
+
+For this example, we'll create a _Stack_ called `BOOKSHELF` that will contain books:
+
+```bash
+curl -XPUT localhost:1205/databases/MY_DATABASE/stacks?name=BOOKSHELF
+```
+
+```json
+{
+  "size": 0,
+  "peek": null,
+  "name": "BOOKSHELF",
+  "id": "682fdfca692a0ad5d46ac6ea35fc4f28"
+}
+```
+
+As an output we get the _Stack_ in JSON format. The bookshelf if empty and there's no book on top that we can pick-up. So let's add a book:
+
+```bash
+curl -XPOST 127.0.0.1:1205/databases/MY_DATABASE/stacks/BOOKSHELF \
+  -d '{"element":{"title":"1984","author":"George Orwell","ISBN":"1595404325","comments":[]}}'
+``` 
+
+
+
 
 
 
