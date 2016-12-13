@@ -219,6 +219,13 @@ We finally read the pending book by doing a `POP` operation on the _Stack_:
 curl -XDELETE localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF
 ```
 
+And we make sure the bookshelf is empty by running a `SIZE` operation on the _Stack_:
+
+```bash
+curl localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF?size
+```
+
+The result is `0`, so we read all pending books!
 
 
 
