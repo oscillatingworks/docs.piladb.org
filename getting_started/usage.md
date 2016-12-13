@@ -227,18 +227,24 @@ curl localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF?size
 
 The result is `0`, so we read all pending books!
 
+### Cleanup
 
+* `FLUSH` a _Stack_ so all _Elements_ are deleted on it:
 
+  ```bash
+  curl -XDELETE localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF?flush
+  ```
+* Delete a _Stack_:
 
+  ```bash
+  curl -XDELETE localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF?full
+  ```
+* Delete a _Database_:
 
+  ```bash
+  curl -XDELETE localhost:1205/databases/MY_DATABASE
+  ```
 
+## Recap
 
-
-
-
-
-
-
-
-
-
+In this page we have started a `pilad` server, we learnt how to create a _Database_ and a _Stack_, and how to handle the latter and _Elements_ by using an idea of a bookshelf where we can pile books, and only read the one on top. Finally, we have applied a cleanup, deleting all existing resources.
