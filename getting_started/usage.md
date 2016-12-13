@@ -130,7 +130,7 @@ curl -XPUT localhost:1205/databases/MY_DATABASE/stacks?name=BOOKSHELF
 
 As an output we get the _Stack_ in JSON format. The bookshelf if empty and there's no book on top that we can pick-up.
 
-### `PUSH`, `PEEK` and `POP` on a Stack
+### `PUSH`, `PEEK`, `POP` and `SIZE` on a Stack
 
 Let's add a book into the bookshelf by doing a `PUSH` operation.
 
@@ -168,7 +168,7 @@ curl -XPOST localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF \
   -d '{"element":{"title":"The Metamorphosis","author":"Franz Kafka","ISBN":"9780486290300","comments":["🐞"]}}'
 ```
 
-Now we have two books, and we have to start reading them from top to bottom. To find out which element is on top, we use the `PEEK` operation:
+Now we have two books, and we have to start reading them from top to bottom. To find out which _Element_ is on top, we use the `PEEK` operation:
 
 ```bash
 curl localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF?peek
@@ -185,8 +185,44 @@ curl localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF?peek
     "ISBN": "9780486290300"
   }
 }
-
 ```
+
+Seems like we start reading _The Metamorphosis_ in order to empty our bookshelf. To consume an _Element_ from a _Stack_, we use the `POP` operation:
+
+```bash
+curl -XDELETE localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF
+```
+
+We get _The Metaphorphosis_ as a response, but if we fetch the status of the _Stack_ we'll only find _1984_ as a pending book in the bookshelf:
+
+```bash
+curl localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF
+```
+
+```json
+{
+  "size": 1,
+  "peek": {
+    "title": "1984",
+    "comments": [],
+    "author": "George Orwell",
+    "ISBN": "1595404325"
+  },
+  "name": "BOOKSHELF",
+  "id": "682fdfca692a0ad5d46ac6ea35fc4f28"
+}
+``` 
+
+We finally read the pending book by doing a `POP` operation on the _Stack_:
+
+```bash
+curl -XDELETE localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF
+```
+
+
+
+
+
 
 
 
