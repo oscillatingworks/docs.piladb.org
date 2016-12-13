@@ -60,11 +60,55 @@ We can also check the current status of **piladb**:
 curl localhost:1205/_status
 ```
 
-Or the current configuration:
+Or the current configuration values:
 
 ```bash
 curl localhost:1205/_config
 ```
+
+### Create a Database
+
+To start working with **piladb**, we need to create a new _Database_, which  will contain the _Stacks_ we will work with:
+
+```bash
+curl -XPUT localhost:1205/databases?name=MY_DATABASE
+```
+
+We will see the new _Database_ as an output in JSON format. We can have access to this content everytime by requesting the new _Database_ itself:
+
+```bash
+curl localhost:1205/databases/MY_DATABASE
+```
+
+```json
+{
+  "number_of_stacks": 0,
+  "name": "MY_DATABASE",
+  "id": "da5bf1684cdb20bd0be0b767007b9e82"
+}
+```
+
+> 🔝 **_Protip!_** Install [`jq`](https://stedolan.github.io/jq/) to print and process the JSON responses.
+
+Also, we can list all existing databases:
+
+```bash
+curl localhost:1205/databases
+```
+
+```json
+{
+  "databases": [
+    {
+      "number_of_stacks": 0,
+      "name": "MY_DATABASE",
+      "id": "da5bf1684cdb20bd0be0b767007b9e82"
+    }
+  ],
+  "number_of_databases": 1
+}
+```
+
 
 
 
