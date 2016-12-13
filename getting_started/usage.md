@@ -109,6 +109,8 @@ curl localhost:1205/databases
 }
 ```
 
+### Create a Stack
+
 
 
 
