@@ -128,12 +128,42 @@ curl -XPUT localhost:1205/databases/MY_DATABASE/stacks?name=BOOKSHELF
 }
 ```
 
-As an output we get the _Stack_ in JSON format. The bookshelf if empty and there's no book on top that we can pick-up. So let's add a book:
+As an output we get the _Stack_ in JSON format. The bookshelf if empty and there's no book on top that we can pick-up.
+
+### `PUSH` and `POP` on a Stack
+
+Let's add a book into the bookshelf by doing a `PUSH` operation.
 
 ```bash
-curl -XPOST 127.0.0.1:1205/databases/MY_DATABASE/stacks/BOOKSHELF \
+curl -XPOST localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF \
   -d '{"element":{"title":"1984","author":"George Orwell","ISBN":"1595404325","comments":[]}}'
+```
+
+This will return the status of the _Stack_:
+
+```json
+{
+  "size": 1,
+  "peek": {
+    "title": "1984",
+    "comments": [],
+    "author": "George Orwell",
+    "ISBN": "1595404325"
+  },
+  "name": "BOOKSHELF",
+  "id": "682fdfca692a0ad5d46ac6ea35fc4f28"
+}
 ``` 
+
+We can get this status anytime by requesting our _Stack_:
+
+```bash
+curl localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF
+```
+
+We want to read _1984_, but we come up with another book that we want to read. So we add it with another `PUSH` operation:
+
+
 
 
 
