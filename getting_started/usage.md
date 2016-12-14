@@ -163,7 +163,7 @@ curl localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF
 
 We want to read _1984_, but in the meantime we come up with another book that we'd like to read before. So we add it with another `PUSH` operation:
 
-```
+```bash
 curl -XPOST localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF \     
   -d '{"element":{"title":"The Metamorphosis","author":"Franz Kafka","ISBN":"9780486290300","comments":["🐞"]}}'
 ```
