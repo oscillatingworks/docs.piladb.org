@@ -14,7 +14,6 @@ Source code: https://github.com/oscillatingworks/pilabook
 
 ***
 
- [![Creative Commons License](http://i.creativecommons.org/l/by/1.0/80x15.png)]  
- This work is licensed under a [Creative Commons Attribution 1.0 Universal License](http://creativecommons.org/licenses/by/1.0/deed.en_US).
+ [![Creative Commons License](https://i.creativecommons.org/l/by/1.0/80x15.png) This work is licensed under a [Creative Commons Attribution 1.0 Universal License](http://creativecommons.org/licenses/by/1.0/deed.en_US).
 
 
