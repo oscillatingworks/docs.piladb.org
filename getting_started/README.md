@@ -4,7 +4,7 @@
 
 The main purpose of **piladb** is to be easy to understand, and easier to use. If you are trying to get started and you failed, don't blame yourself, we didn't do our job correctly! Please report an issue into [the repo](https://github.com/oscillatingworks/pilabook/issues) and tell us what's not right.
 
-Before installing **piladb**, it's worth to mention that it was designed and developed from a **Linux** OS for **Linux** OS's. Although, compatibility and first class support for **macOS** is guaranteed, and it will stay like this forever. Said this, **piladb** should work on platforms like **Windows** or *BSD too, yet there's not official support as of now.
+Before installing **piladb**, it's worth to mention that it was designed and developed from a **Linux** OS for **Linux** OS's. Although, compatibility and first class support for **macOS** is guaranteed, and it will stay like this forever. Said this, **piladb** should work on platforms like **Windows** or ***BSD** too, yet there's not official support as of now.
 
 ## What is piladb?
 
