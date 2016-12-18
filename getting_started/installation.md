@@ -2,6 +2,9 @@
 
 The process of installing **piladb** might differ depending on your role and purposes.
 
+> Before installing **piladb**, please consider that it was designed and developed from a **Linux** for **Linux**. Although, compatibility and first class support for **Mac** is guaranteed, and it will stay like this forever. Said this, **piladb** should work on platforms like **Windows** or ***BSD** too, yet there's not official support as of now.
+
+
 ## For users 🙋
 
 As a user of **piladb** you only need a HTTP client that makes it possible to interact with the REST API of the database server, `pilad`. This a list of some of the most popular HTTP clients out there:
