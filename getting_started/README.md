@@ -4,7 +4,9 @@
 
 **piladb** is a database engine, which means that it's a tool that provides mechanisms to store data in a certain way. In the case of **piladb**, this way is by piling **_Elements_** in **_Stacks_,** so you only have access to the _Element_ on top, keeping the rest of them underneath. 
 
-### Basic concepts
+
+
+### Basic Concepts
 
 An **_Element_** is a piece of data that can be pushed into a _Stack_, and has a JSON compatible format. This means that you can handle in **piladb** the following data types:
 
@@ -30,3 +32,9 @@ A **_Database_** is an entity that contains _Stacks_. So every _Stack_ belongs t
 We'll know as **_Pila_** the super object that will contain and handle all _Databases_, _Stacks_ and _Elements_, as well as memory management, session handling and concurrent operations requests.
 
 **`pilad`** is the daemon program, or server, that will initialize the _Pila_,  exposing to external users an Interface to iterate with it: create _Databases_, create _Stacks_, `PUSH` or `POP` _Elements_, etc.
+
+### Database Model
+
+As of now, **piladb** writes into memory only, and runs as a single server. This means that it doesn't persist data on disk and is not able to replicate its content to another **piladb** instances.
+
+Every operation applied to a **Stack** has a O(1) complexity, and blocks further incoming or concurrent operations.
