@@ -35,6 +35,7 @@ We'll know as **_Pila_** the super object that will contain and handle all _Data
 
 ### Database Model
 
-As of now, **piladb** writes into memory only, and runs as a single server. This means that it doesn't persist data on disk and is not able to replicate its content to another **piladb** instances.
+As of now, **piladb** writes into memory only, and runs as a single server. This means that it doesn't persist data on disk and is not able to replicate its content to another **piladb** instances. If the server is shutdown, all data is flushed and it would require a fresh restart.
 
-Every operation applied to a **Stack** has a O(1) complexity, and blocks further incoming or concurrent operations.
+Every operation applied to a **Stack** has a O(1) complexity, and blocks further incoming or concurrent operations, which ensures consistent responses within a reasonable amount of time.
+
