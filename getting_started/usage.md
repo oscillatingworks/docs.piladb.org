@@ -1,6 +1,6 @@
 # How to use piladb?
 
-Now that you know [how to install **piladb**](installation.md) and what do you need to start using it, let's do real things with it. We will start a `pilad` server and play with it. You don't need to understand all of the steps, copy-pasting the steps in your terminal and checking the output will be enough for now.
+Now that you know [how to install **piladb**](installation.md) and what do you need to start using it, let's do real things with it. We will start a `pilad` server and play with it. You don't need to understand all of the steps, copy-pasting them in your terminal and checking the output will be enough for now.
 
 ## Start the server
 
