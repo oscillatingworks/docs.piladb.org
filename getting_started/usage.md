@@ -71,7 +71,7 @@ curl localhost:1205/_config
 To start working with **piladb**, we need to create a new _Database_, which  will contain the _Stacks_ we will work with:
 
 ```bash
-curl -XPUT localhost:1205/databases?name=MY_DATABASE
+curl -XPUT "localhost:1205/databases?name=MY_DATABASE"
 ```
 
 We will see the new _Database_ as an output in JSON format. We can have access to this content everytime by requesting the new _Database_ itself:
@@ -116,7 +116,7 @@ We created a _Database_, this means we can start creating _Stacks_. The process 
 For this example, we'll create a _Stack_ called `BOOKSHELF` that will contain books:
 
 ```bash
-curl -XPUT localhost:1205/databases/MY_DATABASE/stacks?name=BOOKSHELF
+curl -XPUT "localhost:1205/databases/MY_DATABASE/stacks?name=BOOKSHELF"
 ```
 
 ```json
@@ -171,7 +171,7 @@ curl -XPOST localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF \
 Now we have two books, and we have to start reading them from top to bottom. To find out which _Element_ is on top, we use the `PEEK` operation:
 
 ```bash
-curl localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF?peek
+curl "localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF?peek"
 ```
 
 ```json
@@ -222,7 +222,7 @@ curl -XDELETE localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF
 And we make sure the bookshelf is empty by running a `SIZE` operation on the _Stack_:
 
 ```bash
-curl localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF?size
+curl "localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF?size"
 ```
 
 The result is `0`, so we read all pending books!
@@ -232,12 +232,12 @@ The result is `0`, so we read all pending books!
 * `FLUSH` a _Stack_ so all _Elements_ are deleted on it:
 
   ```bash
-  curl -XDELETE localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF?flush
+  curl -XDELETE "localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF?flush"
   ```
 * Delete a _Stack_:
 
   ```bash
-  curl -XDELETE localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF?full
+  curl -XDELETE "localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF?full"
   ```
 * Delete a _Database_:
 
