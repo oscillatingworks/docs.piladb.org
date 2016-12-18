@@ -1,4 +1,4 @@
-# piladb
+# piladb documentation
 
 ![](/assets/piladb-logo-readme.png)
 
