@@ -16,7 +16,7 @@ As a user of **piladb** you only need a HTTP client that makes it possible to in
   * [Postman](https://www.getpostman.com/) (web, Mac)
 * Programming languages: Every language should have a solid HTTP client that lets you interact programatically with **piladb**. A simple web search should point you into the right direction. For example, [HTTP clients for Ruby](http://lmgtfy.com/?q=ruby+http+client).
 
-## For admins 🤓
+## For admins 💻
 
 As an admin, you want to manage `pilad`, the **piladb** server. In order to do that, you can choose one of the following approaches:
 
