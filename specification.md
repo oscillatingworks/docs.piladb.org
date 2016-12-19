@@ -2,7 +2,7 @@
 
 This page represents the technical specification of **piladb** functionality. In other words, this is a contract between the server and clients, which states what the former must response on latter's requests.
 
-It contains all available operations that a client can execute, its requiremnts and 
+It contains all available operations that a client can execute, its requirements and
 a description of the expected content to return by the server.
 
 ## Main
@@ -14,7 +14,7 @@ a description of the expected content to return by the server.
 **HTTP Method**: `GET`
 
 **HTTP Endpoint**: `/`
- 
+
 **Scenario**: N/A
 
 **HTTP Status Code**: `301  Moved Permanently`
@@ -30,7 +30,7 @@ a description of the expected content to return by the server.
 **HTTP Method**: `GET`
 
 **HTTP Endpoint**: `/_status`
- 
+
 **Scenario**: N/A
 
 **HTTP Status Code**: `200 OK`
@@ -60,14 +60,14 @@ a description of the expected content to return by the server.
 **HTTP Method**: `GET`
 
 **HTTP Endpoint**: `/_config`
- 
+
 **Scenario**: N/A
 
 **HTTP Status Code**: `200 OK`
 
 **JSON Response**:
   * `stacks`: A collection containing configuration keys and values.
-  
+
 **Comment**: N/A
 
 ---
@@ -77,8 +77,57 @@ a description of the expected content to return by the server.
 **HTTP Method**: `GET`
 
 **HTTP Endpoint**: `/_config`
- 
-**Scenario**: Response can't be serialized.  
+
+**Scenario**: Response can't be serialized.
+
+**HTTP Status Code**: `400 Bad Request`
+
+**JSON Response**: N/A
+
+**Comment**: N/A
+
+---
+
+**Description**: Show a configuration value.
+
+**HTTP Method**: `GET`
+
+**HTTP Endpoint**: `/_config/$CONFIG_KEY`
+
+**Scenario**: N/A
+
+**HTTP Status Code**: `200 OK`
+
+**JSON Response**:
+  * `element`: Value of `$CONFIG_KEY`.
+
+**Comment**: N/A
+
+---
+
+**Description**: Show configuration value from a non-existing key.
+
+**HTTP Method**: `GET`
+
+**HTTP Endpoint**: `/_config/$CONFIG_KEY`
+
+**Scenario**: `$CONFIG_KEY` does not exist.
+
+**HTTP Status Code**: `410 Gone`
+
+**JSON Response**: N/A
+
+**Comment**: N/A
+
+---
+
+**Description**: Show configuration value with serialization errors.
+
+**HTTP Method**: `GET`
+
+**HTTP Endpoint**: `/_config/$CONFIG_KEY`
+
+**Scenario**: Response cannot be serialized.
 
 **HTTP Status Code**: `400 Bad Request`
 
@@ -95,13 +144,13 @@ a description of the expected content to return by the server.
 **HTTP Endpoint**: `/_config/$CONFIG_KEY`
 
 **Request Payload**: `{"element":"$CONFIG_VALUE"}`
- 
-**Scenario**: N/A  
+
+**Scenario**: N/A
 
 **HTTP Status Code**: `200 OK`
 
 **JSON Response**:
-  * `element`: `$CONFIG_VALUE` set to `$CONFIG_KEY`
+  * `element`: `$CONFIG_VALUE` set to `$CONFIG_KEY`.
 
 **Comment**: `$CONFIG_KEY` must exist.
 
@@ -114,7 +163,7 @@ a description of the expected content to return by the server.
 **HTTP Endpoint**: `/_config/$CONFIG_KEY`
 
 **Request Payload**: `{"element":"$CONFIG_VALUE"}`
- 
+
 **Scenario**: `$CONFIG_KEY` does not exist.
 
 **HTTP Status Code**: `410 Gone`
@@ -132,7 +181,7 @@ a description of the expected content to return by the server.
 **HTTP Endpoint**: `/_config/$CONFIG_KEY`
 
 **Request Payload**: N/A
- 
+
 **Scenario**: `$CONFIG_VALUE` is not provided in Request Payload.
 
 **HTTP Status Code**: `400 Bad Request`
@@ -149,19 +198,39 @@ a description of the expected content to return by the server.
 
 **HTTP Endpoint**: `/_config/$CONFIG_KEY`
 
-**Request Payload**: 
- 
+**Request Payload**: `{"element":"$CONFIG_VALUE"}`
+
 **Scenario**: Response cannot be serialized.
 
 **HTTP Status Code**: `400 Bad Request`
 
 **JSON Response**: N/A
 
-**Comment**: 
+**Comment**: `$CONFIG_VALUE` is not JSON-compatible.
 
 ---
 
+---
 
+## Databases
+
+---
+
+**Description**:
+
+**HTTP Method**:
+
+**HTTP Endpoint**:
+
+**Request Payload**: `{"element":"$CONFIG_VALUE"}`
+
+**Scenario**:
+
+**HTTP Status Code**:
+
+**JSON Response**:
+
+**Comment**:
 
 
 
@@ -186,9 +255,13 @@ a description of the expected content to return by the server.
 **HTTP Method**:
 
 **HTTP Endpoint**:
- 
+
+**Request Payload**: `{"element":"$CONFIG_VALUE"}`
+
 **Scenario**:
 
 **HTTP Status Code**:
 
 **JSON Response**:
+
+**Comment**:
