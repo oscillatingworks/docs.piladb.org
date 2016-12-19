@@ -17,7 +17,7 @@ a description of the expected content to return by the server.
  
 **Scenario**: N/A
 
-**HTTP Status Code**: `301`
+**HTTP Status Code**: `301  Moved Permanently`
 
 **JSON Response**: N/A
 
@@ -33,7 +33,7 @@ a description of the expected content to return by the server.
  
 **Scenario**: N/A
 
-**HTTP Status Code**: `200`
+**HTTP Status Code**: `200 OK`
 
 **JSON Response**:
   * `status`: Status of piladb, e.g. `OK`.
@@ -55,19 +55,101 @@ a description of the expected content to return by the server.
 
 ---
 
-**Description**: 
+**Description**: Show configuration keys and values.
 
-**HTTP Method**:
+**HTTP Method**: `GET`
 
-**HTTP Endpoint**:
+**HTTP Endpoint**: `/_config`
  
-**Scenario**:
+**Scenario**: N/A
 
-**HTTP Status Code**:
+**HTTP Status Code**: `200 OK`
 
 **JSON Response**:
+  * `stacks`: A collection containing configuration keys and values.
+  
+**Comment**: N/A
 
 ---
+
+**Description**: Show configuration keys and values.
+
+**HTTP Method**: `GET`
+
+**HTTP Endpoint**: `/_config`
+ 
+**Scenario**: The response raises an error when is serialized.  
+
+**HTTP Status Code**: `400 Bad Request`
+
+**JSON Response**: N/A
+
+**Comment**: N/A
+
+---
+
+**Description**: Set a configuration value.
+
+**HTTP Method**: `POST`
+
+**HTTP Endpoint**: `/_config/$CONFIG_KEY`
+
+**Request Payload**: `{"element":"$CONFIG_VALUE"}`
+ 
+**Scenario**: N/A  
+
+**HTTP Status Code**: `200 OK`
+
+**JSON Response**:
+  * `element`: `$CONFIG_VALUE` set to `$CONFIG_KEY`
+
+**Comment**: `$CONFIG_KEY` must exist.
+
+---
+
+**Description**: Set a configuration value.
+
+**HTTP Method**: `POST`
+
+**HTTP Endpoint**: `/_config/$CONFIG_KEY`
+
+**Request Payload**: `{"element":"$CONFIG_VALUE"}`
+ 
+**Scenario**: `$CONFIG_KEY` does not exist.
+
+**HTTP Status Code**: `410 Gone`
+
+**JSON Response**: N/A
+
+**Comment**: N/A
+
+---
+
+**Description**: Set a configuration value.
+
+**HTTP Method**: `POST`
+
+**HTTP Endpoint**: `/_config/$CONFIG_KEY`
+
+**Request Payload**: N/A
+ 
+**Scenario**: `$CONFIG_VALUE` is not provided in Request Payload.
+
+**HTTP Status Code**: `400 Bad Request`
+
+**JSON Response**: N/A
+
+**Comment**: N/A
+
+---
+
+
+
+
+
+
+
+
 
 # Sample
 
