@@ -43,7 +43,7 @@ a description of the expected content to return by the server.
   * `started_at`: Date `pilad` was started (RFC3339).
   * `running_for`: Time server was running in seconds.
   * `number_goroutines`: Number of goroutines started used by the server.
-  * `memory_alloc`: data allocated in memory, in KiB, MiB y GiB.
+  * `memory_alloc`: data allocated in memory, in KiB, MiB or GiB.
 
 **Comment**: N/A
 
