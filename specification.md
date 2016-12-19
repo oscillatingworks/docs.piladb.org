@@ -216,21 +216,24 @@ a description of the expected content to return by the server.
 
 ---
 
-**Description**:
+**Description**: Show databases.
 
-**HTTP Method**:
+**HTTP Method**: `GET`
 
-**HTTP Endpoint**:
+**HTTP Endpoint**: `/databases`
 
-**Request Payload**: `{"element":"$CONFIG_VALUE"}`
+**Scenario**: N/A
 
-**Scenario**:
-
-**HTTP Status Code**:
+**HTTP Status Code**: `200 OK`
 
 **JSON Response**:
+  * `number_of_databases`: Number of Databases.
+  * `databases`: Array with databases information.
+    * `number_of_stacks`: Number of Stacks associated to the Database.
+    * `name`: Name of the Database.
+    * `id`: UUID of the Database, generated from the name of the Database.
 
-**Comment**:
+**Comment**: N/A
 
 
 
