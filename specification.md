@@ -72,13 +72,13 @@ a description of the expected content to return by the server.
 
 ---
 
-**Description**: Show configuration keys and values.
+**Description**: Show configuration keys and values with serialization errors.
 
 **HTTP Method**: `GET`
 
 **HTTP Endpoint**: `/_config`
  
-**Scenario**: The response raises an error when is serialized.  
+**Scenario**: Response can't be serialized.  
 
 **HTTP Status Code**: `400 Bad Request`
 
@@ -107,7 +107,7 @@ a description of the expected content to return by the server.
 
 ---
 
-**Description**: Set a configuration value.
+**Description**: Set a configuration value to a non-existing key.
 
 **HTTP Method**: `POST`
 
@@ -125,7 +125,7 @@ a description of the expected content to return by the server.
 
 ---
 
-**Description**: Set a configuration value.
+**Description**: Set a configuration value without providing value.
 
 **HTTP Method**: `POST`
 
@@ -142,6 +142,34 @@ a description of the expected content to return by the server.
 **Comment**: N/A
 
 ---
+
+**Description**: Set a configuration value with serialization errors.
+
+**HTTP Method**: `POST`
+
+**HTTP Endpoint**: `/_config/$CONFIG_KEY`
+
+**Request Payload**: N/A
+ 
+**Scenario**: Response cannot be serialized.
+
+**HTTP Status Code**: `400 Bad Request`
+
+**JSON Response**: N/A
+
+**Comment**: N/A
+
+---
+
+
+
+
+
+
+
+
+
+
 
 
 
