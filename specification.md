@@ -149,7 +149,7 @@ a description of the expected content to return by the server.
 
 **HTTP Endpoint**: `/_config/$CONFIG_KEY`
 
-**Request Payload**: N/A
+**Request Payload**: 
  
 **Scenario**: Response cannot be serialized.
 
@@ -157,7 +157,7 @@ a description of the expected content to return by the server.
 
 **JSON Response**: N/A
 
-**Comment**: N/A
+**Comment**: 
 
 ---
 
