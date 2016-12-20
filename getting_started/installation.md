@@ -26,20 +26,20 @@ As an admin, you want to manage `pilad`, the **piladb** server. In order to do t
 
 All official **piladb** releases are hosted on Github. Find the latest release for your platform and architecture in [the Downloads list at the release page](https://github.com/fern4lvarez/piladb/releases/latest). They are available on `zip` and `tar.gz` formats.
 
-| Linux | Mac |
-| -- | -- |
-| Coming soon | Coming soon |
+**Linux**: [0.1.0 (tar.gz)](https://github.com/fern4lvarez/piladb/releases/download/v0.1.0/piladb0.1.0.linux-amd64.tar.gz) — [0.1.0 (zip)](https://github.com/fern4lvarez/piladb/releases/download/v0.1.0/piladb0.1.0.linux-amd64.zip)
 
+**Mac**: [0.1.0 (tar.gz)](https://github.com/fern4lvarez/piladb/releases/download/v0.1.0/piladb0.1.0.darwin-amd64.tar.gz) - [0.1.0 (zip)](https://github.com/fern4lvarez/piladb/releases/download/v0.1.0/piladb0.1.0.darwin-amd64.zip)
+:
 #### zip
 
 ```bash
-unzip piladb_OS_ARCH.zip
+unzip piladbX.Y.Z.OS-ARCH.zip
 ```
 
 #### tar.gz
 
 ```bash
-tar -zxvf piladb_OS_ARCH.tar.gz
+tar -zxvf piladbX.Y.Z.OS-ARCH.tar.gz
 ```
 
 When you uncompress the file, you will find inside the resulting directory a `pilad` binary file. Set execution permissions to the file  with `chmod +x pilad`. Now you can move the binary file wherever you need. For more about `pilad` usage, go to the next page.
