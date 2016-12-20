@@ -393,12 +393,6 @@ a description of the expected content to return by the server.
 
 
 
-
-
-
-
-
-
 # Sample
 
 **Description**:
