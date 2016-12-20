@@ -28,8 +28,8 @@ All official **piladb** releases are hosted on Github. Find the latest release f
 
 **Linux**: [0.1.0 (tar.gz)](https://github.com/fern4lvarez/piladb/releases/download/v0.1.0/piladb0.1.0.linux-amd64.tar.gz) — [0.1.0 (zip)](https://github.com/fern4lvarez/piladb/releases/download/v0.1.0/piladb0.1.0.linux-amd64.zip)
 
-**Mac**: [0.1.0 (tar.gz)](https://github.com/fern4lvarez/piladb/releases/download/v0.1.0/piladb0.1.0.darwin-amd64.tar.gz) - [0.1.0 (zip)](https://github.com/fern4lvarez/piladb/releases/download/v0.1.0/piladb0.1.0.darwin-amd64.zip)
-:
+**Mac**: [0.1.0 (tar.gz)](https://github.com/fern4lvarez/piladb/releases/download/v0.1.0/piladb0.1.0.darwin-amd64.tar.gz) — [0.1.0 (zip)](https://github.com/fern4lvarez/piladb/releases/download/v0.1.0/piladb0.1.0.darwin-amd64.zip)
+
 #### zip
 
 ```bash
