@@ -12,7 +12,9 @@ Please report any issue you might find into the repository's [Issues page](https
 
 Documentation page: http://docs.piladb.org
 
-Source code: https://github.com/oscillatingworks/pilabook
+Source code: https://github.com/oscillatingworks/docs.piladb.org
+
+Gitbook project: https://www.gitbook.com/book/fern4lvarez/docs-piladb-org/details
 
 ***
 
