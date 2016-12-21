@@ -233,7 +233,7 @@ Changes in the specification are expected to happen in new releases, and they wi
   * `databases`: Array with databases information.
     * `number_of_stacks`: Number of stacks associated to the database.
     * `name`: Name of the database.
-    * `id`: UUID of the database, generated from the name of the database.
+    * `id`: UUID of the database.
 
 **Comment**: N/A
 
@@ -252,7 +252,7 @@ Changes in the specification are expected to happen in new releases, and they wi
 **JSON Response**:
   * `number_of_stacks`: Number of stacks associated to the database.
   * `name`: Name of the database.
-  * `id`: UUID of the database, generated from the name of the database.
+  * `id`: UUID of the database.
 
 **Comment**: `$DATABASE_ID` can be either the ID or the name of the database.
 
@@ -343,7 +343,7 @@ Changes in the specification are expected to happen in new releases, and they wi
 
 **JSON Response**:
   * `stacks`: Array containing all stacks information.
-    * `id`: UUID of the stack generated from the name of the database and the name of the stack.
+    * `id`: UUID of the stack.
     * `name`: Name of the stack.
     * `peek`: Element on top of the stack.
     * `size`: Number of elements contained in the stack.
@@ -489,7 +489,7 @@ Changes in the specification are expected to happen in new releases, and they wi
 **HTTP Status Code**: `200 OK`
 
 **JSON Response**:
-  * `id`: UUID of the stack generated from the name of the database and the name of the stack.
+  * `id`: UUID of the stack.
   * `name`: Name of the stack.
   * `peek`: Element on top of the stack.
   * `size`: Number of elements contained in the stack.
@@ -544,7 +544,7 @@ Changes in the specification are expected to happen in new releases, and they wi
 
 ---
 
-**Description**: Show a stack where database or stack does not exist.
+**Description**: Show a stack where database or stack do not exist.
 
 **HTTP Method**: `GET`
 
@@ -560,25 +560,178 @@ Changes in the specification are expected to happen in new releases, and they wi
 
 ---
 
+**Description**: `PUSH` operation on a stack.
 
+**HTTP Method**: `POST`
 
+**HTTP Endpoint**: `/databases/$DATABASE_ID/stacks/$STACK_ID`
 
+**Request Payload**: `{"element":"$ELEMENT_VALUE"}`
 
+**Scenario**: N/A
 
-# Sample
-
-**Description**:
-
-**HTTP Method**:
-
-**HTTP Endpoint**:
-
-**Request Payload**: `{"element":"$CONFIG_VALUE"}`
-
-**Scenario**:
-
-**HTTP Status Code**:
+**HTTP Status Code**: `200 OK`
 
 **JSON Response**:
+  * `element`: Pushed element value. Must be `$ELEMENT_VALUE`.
 
 **Comment**:
+  * `updated_at` and `read_at` value get updated.
+  * `$ELEMENT_VALUE` is JSON-compatible.
+  * `$DATABASE_ID` can be either the ID or the name of the database.
+  * `$STACK_ID` can be either the ID or the name of the stack.
+
+---
+
+**Description**: `PUSH` operation on a full stack.
+
+**HTTP Method**: `POST`
+
+**HTTP Endpoint**: `/databases/$DATABASE_ID/stacks/$STACK_ID`
+
+**Request Payload**: `{"element":"$ELEMENT_VALUE"}`
+
+**Scenario**: Config `MAX_STACK_SIZE` value is reached, stack cannot contain more elements.
+
+**HTTP Status Code**: `406 Not Acceptable`
+
+**JSON Response**: N/A
+
+**Comment**: N/A
+
+---
+
+**Description**: `PUSH` operation on a stack where database or stack do not exist.
+
+**HTTP Method**: `POST`
+
+**HTTP Endpoint**: `/databases/$DATABASE_ID/stacks/$STACK_ID`
+
+**Request Payload**: N/A
+
+**Scenario**: `$DATABASE_ID` or `$STACK_ID` do not exist.
+
+**HTTP Status Code**: `410 Gone`
+
+**JSON Response**: N/A
+
+**Comment**: N/A
+
+---
+
+**Description**: `PUSH` operation on a stack with serializing errors.
+
+**HTTP Method**: `POST`
+
+**HTTP Endpoint**: `/databases/$DATABASE_ID/stacks/$STACK_ID`
+
+**Request Payload**: `{"element":"$ELEMENT_VALUE"}`
+
+**Scenario**: `$ELEMENT_VALUE` cannot be serialized.
+
+**HTTP Status Code**: `400 Bad Request`
+
+**JSON Response**: N/A
+
+**Comment**: N/A
+
+---
+
+**Description**: `POP` operation on a stack.
+
+**HTTP Method**: `DELETE`
+
+**HTTP Endpoint**: `/databases/$DATABASE_ID/stacks/$STACK_ID`
+
+**Scenario**: Stack is not empty.
+
+**HTTP Status Code**: `200 OK`
+
+**JSON Response**:
+  * `element`: Popped element value. Must be `$ELEMENT_VALUE`.
+
+**Comment**:
+  * `updated_at` and `read_at` value get updated.
+  * `size` value decrements in one.
+  * `$DATABASE_ID` can be either the ID or the name of the database.
+  * `$STACK_ID` can be either the ID or the name of the stack.
+
+---
+
+**Description**: `POP` operation on an empty stack.
+
+**HTTP Method**: `DELETE`
+
+**HTTP Endpoint**: `/databases/$DATABASE_ID/stacks/$STACK_ID`
+
+**Scenario**: Stack is empty.
+
+**HTTP Status Code**: `204 No Content`
+
+**JSON Response**: N/A
+
+**Comment**: N/A
+
+---
+
+**Description**: `FLUSH` operation on a stack.
+
+**HTTP Method**: `DELETE`
+
+**HTTP Endpoint**: `/databases/$DATABASE_ID/stacks/$STACK_ID?flush`
+
+**Scenario**: N/A
+
+**HTTP Status Code**: `200 OK`
+
+**JSON Response**:
+  * `id`: UUID of the stack.
+  * `name`: Name of the stack.
+  * `peek`: Element on top of the stack. Must be 0.
+  * `size`: Number of elements contained in the stack. Must be 0.
+  * `created_at`: Creation date of the stack in local time (RFC3339).
+  * `updated_at`: Date the stack was updated for the last time in local time (RFC3339).
+  * `read_at`: Date the stack was read or accessed for the last time in local time (RFC3339).
+
+**Comment**:
+  * `updated_at` and `read_at` value get updated.
+  * `$DATABASE_ID` can be either the ID or the name of the database.
+  * `$STACK_ID` can be either the ID or the name of the stack.
+
+---
+
+**Description**: Delete stack.
+
+**HTTP Method**: `DELETE`
+
+**HTTP Endpoint**: `/databases/$DATABASE_ID/stacks/$STACK_ID?full`
+
+**Scenario**: N/A
+
+**HTTP Status Code**: `204 No Content`
+
+**JSON Response**: N/A
+
+**Comment**:
+  * `$DATABASE_ID` can be either the ID or the name of the database.
+  * `$STACK_ID` can be either the ID or the name of the stack.
+
+---
+
+**Description**: `POP` operation on a stack where database or stack do not exist.
+
+**HTTP Method**: `DELETE`
+
+**HTTP Endpoint**: `/databases/$DATABASE_ID/stacks/$STACK_ID`
+
+**Scenario**: `$DATABASE_ID` or `$STACK_ID` do not exist.
+
+**HTTP Status Code**: `410 Gone`
+
+**JSON Response**: N/A
+
+**Comment**: Also applies when `peek` or `full` are provided.
+
+---
+
+---
