@@ -66,6 +66,8 @@ Or the current configuration values:
 curl localhost:1205/_config
 ```
 
+> 🔝 **_Protip!_** Install [`jq`](https://stedolan.github.io/jq/) to pretty print and process the JSON responses.
+
 ### Create a Database
 
 To start working with **piladb**, we need to create a new _Database_, which  will contain the _Stacks_ we will work with:
@@ -87,8 +89,6 @@ curl localhost:1205/databases/MY_DATABASE
   "id": "da5bf1684cdb20bd0be0b767007b9e82"
 }
 ```
-
-> 🔝 **_Protip!_** Install [`jq`](https://stedolan.github.io/jq/) to pretty print and process the JSON responses.
 
 Also, we can list all existing databases:
 
@@ -124,7 +124,10 @@ curl -XPUT "localhost:1205/databases/MY_DATABASE/stacks?name=BOOKSHELF"
   "size": 0,
   "peek": null,
   "name": "BOOKSHELF",
-  "id": "682fdfca692a0ad5d46ac6ea35fc4f28"
+  "id": "682fdfca692a0ad5d46ac6ea35fc4f28,
+  "created_at": "2016-12-08T17:45:50.668575679+01:00",
+  "updated_at": "2016-12-08T17:45:50.668575679+01:00",
+  "read_at": "2016-12-08T17:45:50.668575679+01:00"
 }
 ```
 
@@ -139,7 +142,24 @@ curl -XPOST localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF \
   -d '{"element":{"title":"1984","author":"George Orwell","ISBN":"1595404325","comments":[]}}'
 ```
 
-This will return the status of the _Stack_:
+This will return the pushed _Element_:
+
+```json
+{
+  "element": {
+    "title": "1984",
+    "comments": [],
+    "author": "George Orwell",
+    "ISBN": "1595404325"
+  }
+}
+```
+
+We can get the status of the stack anytime by requesting our _Stack_:
+
+```bash
+curl localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF
+```
 
 ```json
 {
@@ -151,14 +171,11 @@ This will return the status of the _Stack_:
     "ISBN": "1595404325"
   },
   "name": "BOOKSHELF",
-  "id": "682fdfca692a0ad5d46ac6ea35fc4f28"
+  "id": "682fdfca692a0ad5d46ac6ea35fc4f28",
+  "created_at": "2016-12-08T17:45:50.668575679+01:00",
+  "updated_at": "2016-12-08T17:46:50.668575679+01:00",
+  "read_at": "2016-12-08T17:47:50.668575679+01:00"
 }
-``` 
-
-We can get this status anytime by requesting our _Stack_:
-
-```bash
-curl localhost:1205/databases/MY_DATABASE/stacks/BOOKSHELF
 ```
 
 We want to read _1984_, but in the meantime we come up with another book that we'd like to read before. So we add it with another `PUSH` operation:
