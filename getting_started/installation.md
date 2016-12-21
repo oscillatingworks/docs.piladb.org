@@ -26,14 +26,6 @@ As an admin, you want to manage `pilad`, the **piladb** server. In order to do t
 
 All official **piladb** releases are hosted on Github. Find the latest release for your platform and architecture in [the Downloads list at the release page](https://github.com/fern4lvarez/piladb/releases/latest). They are available on `zip` and `tar.gz` formats.
 
-**Linux**:
-  * [0.1.0 (tar.gz)](https://github.com/fern4lvarez/piladb/releases/download/v0.1.0/piladb0.1.0.linux-amd64.tar.gz)
-  * [0.1.0 (zip)](https://github.com/fern4lvarez/piladb/releases/download/v0.1.0/piladb0.1.0.linux-amd64.zip)
-
-**Mac**:
-  * [0.1.0 (tar.gz)](https://github.com/fern4lvarez/piladb/releases/download/v0.1.0/piladb0.1.0.darwin-amd64.tar.gz)
-  * [0.1.0 (zip)](https://github.com/fern4lvarez/piladb/releases/download/v0.1.0/piladb0.1.0.darwin-amd64.zip)
-
 #### zip
 
 ```bash
@@ -46,7 +38,7 @@ unzip piladbX.Y.Z.OS-ARCH.zip
 tar -zxvf piladbX.Y.Z.OS-ARCH.tar.gz
 ```
 
-When you uncompress the file, you will find inside the resulting directory a `pilad` binary file. Set execution permissions to the file  with `chmod +x pilad`. Now you can move the binary file wherever you need. For more about `pilad` usage, go to the next page.
+When you uncompress the file, you will find inside the resulting directory a `pilad` binary file. Move the binary file where you want to execute it from. For more about `pilad` usage, go to the next page.
 
 ### Go installer
 
@@ -71,7 +63,7 @@ docker run -d --name piladb -p $PILADB_PORT:1205 fern4lvarez/piladb
 # -d: start container in the background as a daemon
 # --name: give a name to the container
 # -p: `pilad` will listen on `$PILADB_PORT` from outside of the container
-# fern4lvarez/piladb es el nombre oficial de la imagen 
+# fern4lvarez/piladb is the official name of the image
 ```
 
 This will bootstrap a `pilad` instance, listening on a the Port number set with `$PILADB_PORT`.

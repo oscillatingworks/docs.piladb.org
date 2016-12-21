@@ -5,6 +5,8 @@ This page represents the technical specification of **piladb** functionality. In
 It contains all available operations that a client can execute, its requirements and
 a description of the expected content to return by the server.
 
+Changes in the specification are expected to happen in new releases, and they will be correctly documented.
+
 ## Main
 
 ---
@@ -272,7 +274,7 @@ a description of the expected content to return by the server.
 
 ---
 
-**Description**: Create a new database.
+**Description**: Create a database.
 
 **HTTP Method**: `PUT`
 
@@ -291,7 +293,7 @@ a description of the expected content to return by the server.
 
 ---
 
-**Description**: Create a new database without providing name.
+**Description**: Create a database without providing the name.
 
 **HTTP Method**: `PUT`
 
@@ -349,7 +351,25 @@ a description of the expected content to return by the server.
     * `updated_at`: Date the stack was updated for the last time in local time (RFC3339).
     * `read_at`: Date the stack was read or accessed for the last time in local time (RFC3339).
 
-**Comment**: This doesn't update `read_at` value of stacks.
+**Comment**: This doesn't update `read_at` value.
+
+---
+
+**Description**: Show stacks of a database in key-value format.
+
+**HTTP Method**: `GET`
+
+**HTTP Endpoint**: `/databases/$DATABASE_ID/stacks?kv`
+
+**Scenario**: N/A
+
+**HTTP Status Code**: `200 OK`
+
+**JSON Response**:
+  * `stacks`: Set of key-value's:
+    * Key: name of the stack — Value: peek of the stack.
+
+**Comment**: N/A
 
 ---
 
@@ -365,7 +385,7 @@ a description of the expected content to return by the server.
 
 **JSON Response**: N/A
 
-**Comment**: N/A
+**Comment**: Also applies when `kv` is provided.
 
 ---
 
@@ -381,12 +401,164 @@ a description of the expected content to return by the server.
 
 **JSON Response**: N/A
 
+**Comment**: Also applies when `kv` is provided.
+
+---
+
+**Description**: Create a stack from a database.
+
+**HTTP Method**: `PUT`
+
+**HTTP Endpoint**: `/databases/$DATABASE_ID/stacks?name=$STACK_NAME`
+
+**Scenario**: N/A
+
+**HTTP Status Code**: `201 Created`
+
+**JSON Response**:
+  * `id`: UUID of the stack generated from the name of the database and `$STACK_NAME`.
+  * `name`: Name of the stack. Must be `$STACK_NAME`.
+  * `peek`: Element on top of the stack. Must be `null`.
+  * `size`: Number of elements contained in the stack. Must be 0.
+  * `created_at`: Creation date of the stack in local time (RFC3339).
+  * `updated_at`: Date the stack was updated for the last time in local time (RFC3339).
+  * `read_at`: Date the stack was read or accessed for the last time in local time (RFC3339).
+
+**Comment**:
+  * `created_at`, `updates_at` and `read_at` must be similar.
+  * `$DATABASE_ID` can be either the ID or the name of the database.
+
+---
+
+**Description**: Create a stack from a non-existing database.
+
+**HTTP Method**: `PUT`
+
+**HTTP Endpoint**: `/databases/$DATABASE_ID/stacks?name=$DATABASE_NAME`
+
+**Scenario**: `$DATABASE_ID` does not exist.
+
+**HTTP Status Code**: `410 Gone`
+
+**JSON Response**: N/A
+
 **Comment**: N/A
 
 ---
 
+**Description**: Create a stack without providing the name.
 
+**HTTP Method**: `PUT`
 
+**HTTP Endpoint**: `/databases/$DATABASE_ID/stacks`
+
+**Scenario**: `name` is not provided in the query string.
+
+**HTTP Status Code**: `400 Bad Request`
+
+**JSON Response**: N/A
+
+**Comment**: N/A
+
+---
+
+**Description**: Create a stack that already exists.
+
+**HTTP Method**: `PUT`
+
+**HTTP Endpoint**: `/databases/$DATABASE_ID/stacks`
+
+**Scenario**: `name` is not provided in the query string.
+
+**HTTP Status Code**: `409 Conflict`
+
+**JSON Response**: N/A
+
+**Comment**: N/A
+
+---
+
+**Description**: Show a stack.
+
+**HTTP Method**: `GET`
+
+**HTTP Endpoint**: `/databases/$DATABASE_ID/stacks/$STACK_ID`
+
+**Scenario**: N/A
+
+**HTTP Status Code**: `200 OK`
+
+**JSON Response**:
+  * `id`: UUID of the stack generated from the name of the database and the name of the stack.
+  * `name`: Name of the stack.
+  * `peek`: Element on top of the stack.
+  * `size`: Number of elements contained in the stack.
+  * `created_at`: Creation date of the stack in local time (RFC3339).
+  * `updated_at`: Date the stack was updated for the last time in local time (RFC3339).
+  * `read_at`: Date the stack was read or accessed for the last time in local time (RFC3339).
+
+**Comment**:
+  * `read_at` value gets updated.
+  * `$DATABASE_ID` can be either the ID or the name of the database.
+  * `$STACK_ID` can be either the ID or the name of the stack.
+
+---
+
+**Description**: `PEEK` operation on a stack.
+
+**HTTP Method**: `GET`
+
+**HTTP Endpoint**: `/databases/$DATABASE_ID/stacks/$STACK_ID?peek`
+
+**Scenario**: N/A
+
+**HTTP Status Code**: `200 OK`
+
+**JSON Response**:
+  * `element`: Element on top of the stack.
+
+**Comment**:
+  * `read_at` value gets updated.
+  * `$DATABASE_ID` can be either the ID or the name of the database.
+  * `$STACK_ID` can be either the ID or the name of the stack.
+
+---
+
+**Description**: `SIZE` operation on a stack.
+
+**HTTP Method**: `GET`
+
+**HTTP Endpoint**: `/databases/$DATABASE_ID/stacks/$STACK_ID?size`
+
+**Scenario**: N/A
+
+**HTTP Status Code**: `200 OK`
+
+**JSON Response**:
+  * Size of the stack as number.
+
+**Comment**:
+  * `read_at` value gets updated.
+  * `$DATABASE_ID` can be either the ID or the name of the database.
+  * `$STACK_ID` can be either the ID or the name of the stack.
+
+---
+
+**Description**: Show a stack where database or stack does not exist.
+
+**HTTP Method**: `GET`
+
+**HTTP Endpoint**: `/databases/$DATABASE_ID/stacks/$STACK_ID`
+
+**Scenario**: `$DATABASE_ID` or `$STACK_ID` do not exist.
+
+**HTTP Status Code**: `410 Gone`
+
+**JSON Response**: N/A
+
+**Comment**: Also applies when `peek` or `size` are provided.
+
+---
 
 
 
