@@ -2,7 +2,7 @@
 
 This page represents the technical specification of **piladb** functionality. In other words, this is a contract between the server and clients, which states what the former must response on latter's requests.
 
-It contains all available operations that a client can execute, its requirements and
+It contains all available operations that a client can execute, its requirements and  
 a description of the expected content to return by the server.
 
 Changes in the specification are expected to happen in new releases, and they will be correctly documented.
@@ -38,14 +38,15 @@ Changes in the specification are expected to happen in new releases, and they wi
 **HTTP Status Code**: `200 OK`
 
 **JSON Response**:
-  * `status`: Status of piladb, e.g. `OK`.
-  * `version`: Version of piladb. If not set, uses `master`.
-  * `host`: OS and architecture of host machine, e.g. `linux_amd64`
-  * `pid`: Process ID.
-  * `started_at`: Date `pilad` was started in local time (RFC3339).
-  * `running_for`: Time server was running in seconds.
-  * `number_goroutines`: Number of goroutines started used by the server.
-  * `memory_alloc`: data allocated in memory, in KiB, MiB or GiB.
+
+* `status`: Status of piladb, e.g. `OK`.
+* `version`: Version of piladb. If not set, uses `master`.
+* `host`: OS and architecture of host machine, e.g. `linux_amd64`
+* `pid`: Process ID.
+* `started_at`: Date `pilad` was started in local time \(RFC3339\).
+* `running_for`: Time server was running in seconds.
+* `number_goroutines`: Number of goroutines started used by the server.
+* `memory_alloc`: data allocated in memory, in KiB, MiB or GiB.
 
 **Comment**: N/A
 
@@ -68,7 +69,8 @@ Changes in the specification are expected to happen in new releases, and they wi
 **HTTP Status Code**: `200 OK`
 
 **JSON Response**:
-  * `stacks`: A collection containing configuration keys and values.
+
+* `stacks`: A collection containing configuration keys and values.
 
 **Comment**: N/A
 
@@ -101,7 +103,8 @@ Changes in the specification are expected to happen in new releases, and they wi
 **HTTP Status Code**: `200 OK`
 
 **JSON Response**:
-  * `element`: Value of `$CONFIG_KEY`.
+
+* `element`: Value of `$CONFIG_KEY`.
 
 **Comment**: N/A
 
@@ -152,7 +155,8 @@ Changes in the specification are expected to happen in new releases, and they wi
 **HTTP Status Code**: `200 OK`
 
 **JSON Response**:
-  * `element`: `$CONFIG_VALUE` set to `$CONFIG_KEY`.
+
+* `element`: `$CONFIG_VALUE` set to `$CONFIG_KEY`.
 
 **Comment**: `$CONFIG_KEY` must exist.
 
@@ -229,11 +233,12 @@ Changes in the specification are expected to happen in new releases, and they wi
 **HTTP Status Code**: `200 OK`
 
 **JSON Response**:
-  * `number_of_databases`: Number of Databases.
-  * `databases`: Array with databases information.
-    * `number_of_stacks`: Number of stacks associated to the database.
-    * `name`: Name of the database.
-    * `id`: UUID of the database.
+
+* `number_of_databases`: Number of Databases.
+* `databases`: Array with databases information.
+  * `number_of_stacks`: Number of stacks associated to the database.
+  * `name`: Name of the database.
+  * `id`: UUID of the database.
 
 **Comment**: N/A
 
@@ -243,16 +248,17 @@ Changes in the specification are expected to happen in new releases, and they wi
 
 **HTTP Method**: `GET`
 
-**HTTP Endpoint**: `/database/$DATABASE_ID`
+**HTTP Endpoint**: `/databases/$DATABASE_ID`
 
 **Scenario**: N/A
 
 **HTTP Status Code**: `200 OK`
 
 **JSON Response**:
-  * `number_of_stacks`: Number of stacks associated to the database.
-  * `name`: Name of the database.
-  * `id`: UUID of the database.
+
+* `number_of_stacks`: Number of stacks associated to the database.
+* `name`: Name of the database.
+* `id`: UUID of the database.
 
 **Comment**: `$DATABASE_ID` can be either the ID or the name of the database.
 
@@ -262,7 +268,7 @@ Changes in the specification are expected to happen in new releases, and they wi
 
 **HTTP Method**: `GET`
 
-**HTTP Endpoint**: `/database/$DATABASE_ID`
+**HTTP Endpoint**: `/databases/$DATABASE_ID`
 
 **Scenario**: `$DATABASE_ID` does not exist.
 
@@ -278,16 +284,17 @@ Changes in the specification are expected to happen in new releases, and they wi
 
 **HTTP Method**: `PUT`
 
-**HTTP Endpoint**: `/database?name=$DATABASE_NAME`
+**HTTP Endpoint**: `/databases?name=$DATABASE_NAME`
 
 **Scenario**: N/A
 
 **HTTP Status Code**: `201 Created`
 
 **JSON Response**:
-  * `number_of_stacks`: Number of stacks associated to the database. Must be `0`.
-  * `name`: Name of the database.
-  * `id`: UUID of the database, generated from the name of the database.
+
+* `number_of_stacks`: Number of stacks associated to the database. Must be `0`.
+* `name`: Name of the database.
+* `id`: UUID of the database, generated from the name of the database.
 
 **Comment**: N/A
 
@@ -297,7 +304,7 @@ Changes in the specification are expected to happen in new releases, and they wi
 
 **HTTP Method**: `PUT`
 
-**HTTP Endpoint**: `/database`
+**HTTP Endpoint**: `/databases`
 
 **Scenario**: `name` is not provided in the query string.
 
@@ -313,7 +320,7 @@ Changes in the specification are expected to happen in new releases, and they wi
 
 **HTTP Method**: `DELETE`
 
-**HTTP Endpoint**: `/database/$DATABASE_ID`
+**HTTP Endpoint**: `/databases/$DATABASE_ID`
 
 **Scenario**: N/A
 
@@ -342,14 +349,15 @@ Changes in the specification are expected to happen in new releases, and they wi
 **HTTP Status Code**: `200 OK`
 
 **JSON Response**:
-  * `stacks`: Array containing all stacks information.
-    * `id`: UUID of the stack.
-    * `name`: Name of the stack.
-    * `peek`: Element on top of the stack.
-    * `size`: Number of elements contained in the stack.
-    * `created_at`: Creation date of the stack in local time (RFC3339).
-    * `updated_at`: Date the stack was updated for the last time in local time (RFC3339).
-    * `read_at`: Date the stack was read or accessed for the last time in local time (RFC3339).
+
+* `stacks`: Array containing all stacks information.
+  * `id`: UUID of the stack.
+  * `name`: Name of the stack.
+  * `peek`: Element on top of the stack.
+  * `size`: Number of elements contained in the stack.
+  * `created_at`: Creation date of the stack in local time \(RFC3339\).
+  * `updated_at`: Date the stack was updated for the last time in local time \(RFC3339\).
+  * `read_at`: Date the stack was read or accessed for the last time in local time \(RFC3339\).
 
 **Comment**: This doesn't update `read_at` value.
 
@@ -366,8 +374,9 @@ Changes in the specification are expected to happen in new releases, and they wi
 **HTTP Status Code**: `200 OK`
 
 **JSON Response**:
-  * `stacks`: Set of key-value's:
-    * Key: name of the stack — Value: peek of the stack.
+
+* `stacks`: Set of key-value's:
+  * Key: name of the stack — Value: peek of the stack.
 
 **Comment**: N/A
 
@@ -416,17 +425,19 @@ Changes in the specification are expected to happen in new releases, and they wi
 **HTTP Status Code**: `201 Created`
 
 **JSON Response**:
-  * `id`: UUID of the stack generated from the name of the database and `$STACK_NAME`.
-  * `name`: Name of the stack. Must be `$STACK_NAME`.
-  * `peek`: Element on top of the stack. Must be `null`.
-  * `size`: Number of elements contained in the stack. Must be 0.
-  * `created_at`: Creation date of the stack in local time (RFC3339).
-  * `updated_at`: Date the stack was updated for the last time in local time (RFC3339).
-  * `read_at`: Date the stack was read or accessed for the last time in local time (RFC3339).
+
+* `id`: UUID of the stack generated from the name of the database and `$STACK_NAME`.
+* `name`: Name of the stack. Must be `$STACK_NAME`.
+* `peek`: Element on top of the stack. Must be `null`.
+* `size`: Number of elements contained in the stack. Must be 0.
+* `created_at`: Creation date of the stack in local time \(RFC3339\).
+* `updated_at`: Date the stack was updated for the last time in local time \(RFC3339\).
+* `read_at`: Date the stack was read or accessed for the last time in local time \(RFC3339\).
 
 **Comment**:
-  * `created_at`, `updates_at` and `read_at` must be similar.
-  * `$DATABASE_ID` can be either the ID or the name of the database.
+
+* `created_at`, `updates_at` and `read_at` must be similar.
+* `$DATABASE_ID` can be either the ID or the name of the database.
 
 ---
 
@@ -489,18 +500,20 @@ Changes in the specification are expected to happen in new releases, and they wi
 **HTTP Status Code**: `200 OK`
 
 **JSON Response**:
-  * `id`: UUID of the stack.
-  * `name`: Name of the stack.
-  * `peek`: Element on top of the stack.
-  * `size`: Number of elements contained in the stack.
-  * `created_at`: Creation date of the stack in local time (RFC3339).
-  * `updated_at`: Date the stack was updated for the last time in local time (RFC3339).
-  * `read_at`: Date the stack was read or accessed for the last time in local time (RFC3339).
+
+* `id`: UUID of the stack.
+* `name`: Name of the stack.
+* `peek`: Element on top of the stack.
+* `size`: Number of elements contained in the stack.
+* `created_at`: Creation date of the stack in local time \(RFC3339\).
+* `updated_at`: Date the stack was updated for the last time in local time \(RFC3339\).
+* `read_at`: Date the stack was read or accessed for the last time in local time \(RFC3339\).
 
 **Comment**:
-  * `read_at` value gets updated.
-  * `$DATABASE_ID` can be either the ID or the name of the database.
-  * `$STACK_ID` can be either the ID or the name of the stack.
+
+* `read_at` value gets updated.
+* `$DATABASE_ID` can be either the ID or the name of the database.
+* `$STACK_ID` can be either the ID or the name of the stack.
 
 ---
 
@@ -515,12 +528,14 @@ Changes in the specification are expected to happen in new releases, and they wi
 **HTTP Status Code**: `200 OK`
 
 **JSON Response**:
-  * `element`: Element on top of the stack.
+
+* `element`: Element on top of the stack.
 
 **Comment**:
-  * `read_at` value gets updated.
-  * `$DATABASE_ID` can be either the ID or the name of the database.
-  * `$STACK_ID` can be either the ID or the name of the stack.
+
+* `read_at` value gets updated.
+* `$DATABASE_ID` can be either the ID or the name of the database.
+* `$STACK_ID` can be either the ID or the name of the stack.
 
 ---
 
@@ -535,12 +550,14 @@ Changes in the specification are expected to happen in new releases, and they wi
 **HTTP Status Code**: `200 OK`
 
 **JSON Response**:
-  * Size of the stack as number.
+
+* Size of the stack as number.
 
 **Comment**:
-  * `read_at` value gets updated.
-  * `$DATABASE_ID` can be either the ID or the name of the database.
-  * `$STACK_ID` can be either the ID or the name of the stack.
+
+* `read_at` value gets updated.
+* `$DATABASE_ID` can be either the ID or the name of the database.
+* `$STACK_ID` can be either the ID or the name of the stack.
 
 ---
 
@@ -573,13 +590,15 @@ Changes in the specification are expected to happen in new releases, and they wi
 **HTTP Status Code**: `200 OK`
 
 **JSON Response**:
-  * `element`: Pushed element value. Must be `$ELEMENT_VALUE`.
+
+* `element`: Pushed element value. Must be `$ELEMENT_VALUE`.
 
 **Comment**:
-  * `updated_at` and `read_at` value get updated.
-  * `$ELEMENT_VALUE` is JSON-compatible.
-  * `$DATABASE_ID` can be either the ID or the name of the database.
-  * `$STACK_ID` can be either the ID or the name of the stack.
+
+* `updated_at` and `read_at` value get updated.
+* `$ELEMENT_VALUE` is JSON-compatible.
+* `$DATABASE_ID` can be either the ID or the name of the database.
+* `$STACK_ID` can be either the ID or the name of the stack.
 
 ---
 
@@ -648,13 +667,15 @@ Changes in the specification are expected to happen in new releases, and they wi
 **HTTP Status Code**: `200 OK`
 
 **JSON Response**:
-  * `element`: Popped element value. Must be `$ELEMENT_VALUE`.
+
+* `element`: Popped element value. Must be `$ELEMENT_VALUE`.
 
 **Comment**:
-  * `updated_at` and `read_at` value get updated.
-  * `size` value decrements in one.
-  * `$DATABASE_ID` can be either the ID or the name of the database.
-  * `$STACK_ID` can be either the ID or the name of the stack.
+
+* `updated_at` and `read_at` value get updated.
+* `size` value decrements in one.
+* `$DATABASE_ID` can be either the ID or the name of the database.
+* `$STACK_ID` can be either the ID or the name of the stack.
 
 ---
 
@@ -685,18 +706,20 @@ Changes in the specification are expected to happen in new releases, and they wi
 **HTTP Status Code**: `200 OK`
 
 **JSON Response**:
-  * `id`: UUID of the stack.
-  * `name`: Name of the stack.
-  * `peek`: Element on top of the stack. Must be 0.
-  * `size`: Number of elements contained in the stack. Must be 0.
-  * `created_at`: Creation date of the stack in local time (RFC3339).
-  * `updated_at`: Date the stack was updated for the last time in local time (RFC3339).
-  * `read_at`: Date the stack was read or accessed for the last time in local time (RFC3339).
+
+* `id`: UUID of the stack.
+* `name`: Name of the stack.
+* `peek`: Element on top of the stack. Must be 0.
+* `size`: Number of elements contained in the stack. Must be 0.
+* `created_at`: Creation date of the stack in local time \(RFC3339\).
+* `updated_at`: Date the stack was updated for the last time in local time \(RFC3339\).
+* `read_at`: Date the stack was read or accessed for the last time in local time \(RFC3339\).
 
 **Comment**:
-  * `updated_at` and `read_at` value get updated.
-  * `$DATABASE_ID` can be either the ID or the name of the database.
-  * `$STACK_ID` can be either the ID or the name of the stack.
+
+* `updated_at` and `read_at` value get updated.
+* `$DATABASE_ID` can be either the ID or the name of the database.
+* `$STACK_ID` can be either the ID or the name of the stack.
 
 ---
 
@@ -713,8 +736,9 @@ Changes in the specification are expected to happen in new releases, and they wi
 **JSON Response**: N/A
 
 **Comment**:
-  * `$DATABASE_ID` can be either the ID or the name of the database.
-  * `$STACK_ID` can be either the ID or the name of the stack.
+
+* `$DATABASE_ID` can be either the ID or the name of the database.
+* `$STACK_ID` can be either the ID or the name of the stack.
 
 ---
 
@@ -735,3 +759,6 @@ Changes in the specification are expected to happen in new releases, and they wi
 ---
 
 ---
+
+
+
