@@ -9,6 +9,7 @@ In this article, we will explain some possible use cases that can help you under
 A caching system can help you to save those pieces of data that are expensive to read, but you need to access frequently, so you can request them in a much faster way. These are for example complex queries to databases, requests to HTTP APIs or web scraping. **piladb** can be the caching system you need:
 
 * If you push a _cached_ element on a Stack, it will be stored on top, so all reads will have constant complexity.
+* Each stack records the time they were created, updated and read, so you can implement cache invalidation around it.
 * You can store JSON documents, strings, HTML code, numbers, and more, which gives a lot of flexibility to cache data of different nature.
 * Using multiple **piladb**'s Databases lets you split your cached data by categories or domains, so your cache is well organized.
 * Requests to cached data are HTTP based, so if you avoid big latency between consumer and server, you get a standard and fast way to access the cache.
