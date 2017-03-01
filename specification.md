@@ -198,6 +198,24 @@ Changes in the specification are expected to happen in new releases, and they wi
 
 ---
 
+**Description**: Set a configuration value with invalid payload.
+
+**HTTP Method**: `POST`
+
+**HTTP Endpoint**: `/_config/$CONFIG_KEY`
+
+**Request Payload**: `{"elem":"$CONFIG_VALUE"}`
+
+**Scenario**: Request payload cannot  be serialized.
+
+**HTTP Status Code**: `400 Bad Request`
+
+**JSON Response**: N/A
+
+**Comment**: Request payload does not contain `element` key.
+
+---
+
 **Description**: Set a configuration value with serialization errors.
 
 **HTTP Method**: `POST`
@@ -635,6 +653,24 @@ Changes in the specification are expected to happen in new releases, and they wi
 **JSON Response**: N/A
 
 **Comment**: N/A
+
+---
+
+**Description**: `PUSH` operation on a stack with invalid payload.
+
+**HTTP Method**: `POST`
+
+**HTTP Endpoint**: `/databases/$DATABASE_ID/stacks/$STACK_ID`
+
+**Request Payload**: `{"elent":"$ELEMENT_VALUE"}`
+
+**Scenario**: Request payload cannot be serialized.
+
+**HTTP Status Code**: `400 Bad Request`
+
+**JSON Response**: N/A
+
+**Comment**: Request payload does not contain `element` key.
 
 ---
 
