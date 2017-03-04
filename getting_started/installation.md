@@ -40,6 +40,26 @@ tar -zxvf piladbX.Y.Z.OS-ARCH.tar.gz
 
 When you uncompress the file, you will find inside the resulting directory a `pilad` binary file. Move the binary file where you want to execute it from. For more about `pilad` usage, go to the next page.
 
+### Shell client
+
+You can install **piladb** with [`piladb.sh`](https://github.com/oscillatingworks/piladb-sh), a shell script that exports a few utilities around the project for the command line and shell scripts. One of these utilities is `piladb_download`, a command that will download a Release, uncompress it and put the `pilad` binary in place. You can source these commands with a single action, with no need to download the script:
+
+```bash
+# export piladb.sh utilities
+source <(curl -s https://raw.githubusercontent.com/oscillatingworks/piladb-sh/master/piladb.sh)
+
+# download and install pilad binary
+# $version is a released version, e.g. 0.1.0, 0.1.1, etc.
+# $os is the operating system, e.g. linux or darwin
+# if parameters are not provided, it will install latest release for linux
+piladb_download $version $os
+
+# check pilad was installed
+pilad -h
+```
+
+Keep in mind that `piladb_download` command will store the `pilad` binary into `$HOME/bin`, and will add this directory to `$PATH`.
+
 ### Go installer
 
 > Requirements: `git` and [Go](https://golang.org/dl/) +1.6 installed, and `GOPATH` setup.
