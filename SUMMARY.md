@@ -5,6 +5,6 @@
   * [Installation](getting_started/installation.md)
   * [Usage](getting_started/usage.md)
   * [Use Cases](getting_started/use-cases.md)
-* Clients
+* [Clients](clients.md)
 * [Specification](specification.md)
 
