@@ -19,3 +19,17 @@ Now if you type `piladb_help` you can see a summary of all new available command
 * Operations in Stacks: `piladb_PUSH $database_name $stack_name $element`, `piladb_{POP,PEEK,SIZE,FlUSH} $database_name $stack_name`.
 * Show Status of piladb: `piladb_status`.
 * Show, get or set a Config value: `piladb_config`, `piladb_config_get $config_key`, `piladb_config_set $config_key config_value`.
+
+[HTTPie](https://httpie.org/) is used as HTTP client under the hood, so it is a requirement in order to use most of these commands. If you find a bug or you want to contribute, feel free to open an Issue or Pull Request in the [Github repo](https://github.com/oscillatingworks/piladb-sh/issues/new).
+
+## Go
+
+Not implemented. [Help!](https://github.com/oscillatingworks/piladb-go)
+
+## Ruby
+
+Not implemented. [Help!](https://github.com/oscillatingworks/piladb-rb)
+
+## JavaScript
+
+Not implemented. [Help!](https://github.com/oscillatingworks/piladb-js)
