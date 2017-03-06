@@ -11,7 +11,7 @@ Changes in the specification are expected to happen in new releases, and they wi
 
 ---
 
-**Description**: Show API documentation.
+**Description**: Thank you!
 
 **HTTP Method**: `GET`
 
@@ -19,11 +19,27 @@ Changes in the specification are expected to happen in new releases, and they wi
 
 **Scenario**: N/A
 
-**HTTP Status Code**: `301  Moved Permanently`
+**HTTP Status Code**: `200 OK`
 
 **JSON Response**: N/A
 
-**Comment**: Redirects to the `README.md` file of `pilad` package in Github, using the version executed. If version does not exist in Github, it uses master.
+**Comment**: Thanks you for using piladb and shows some links of interest.
+
+---
+
+**Description**: Ping server.
+
+**HTTP Method**: `GET`
+
+**HTTP Endpoint**: `/_ping`
+
+**Scenario**: N/A
+
+**HTTP Status Code**: `200 OK`
+
+**Plain Text  Response**: `pong`
+
+**Comment**: Sends a _ping_ to the server, that will answer _pong_ if it is running.
 
 ---
 
@@ -40,7 +56,8 @@ Changes in the specification are expected to happen in new releases, and they wi
 **JSON Response**:
 
 * `status`: Status of piladb, e.g. `OK`.
-* `version`: Version of piladb. If not set, uses `master`.
+* `version`: Version of piladb. If not set, uses `undefined`.
+* `go_version`: Version of Go used to compile `pilad`.
 * `host`: OS and architecture of host machine, e.g. `linux_amd64`
 * `pid`: Process ID.
 * `started_at`: Date `pilad` was started in local time \(RFC3339\).
