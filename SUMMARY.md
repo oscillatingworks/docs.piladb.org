@@ -7,4 +7,5 @@
   * [Use Cases](getting_started/use-cases.md)
 * [Clients](clients.md)
 * [Specification](specification.md)
+* [Configuration](configuration.md)
 
