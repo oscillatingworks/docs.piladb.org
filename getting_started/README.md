@@ -2,9 +2,7 @@
 
 ## What is piladb?
 
-**piladb** is a database engine, which means that it's a tool that provides mechanisms to store data in a certain way. In the case of **piladb**, this way is by piling **_Elements_** in **_Stacks_,** so you only have access to the _Element_ on top, keeping the rest of them underneath. 
-
-
+**piladb** is a database engine, which means it's a tool that provides mechanisms to store data in a certain way. In the case of **piladb**, this way is by piling **_Elements_** in **_Stacks_,** so you only have access to the _Element_ on top, keeping the rest of them underneath.
 
 ### Basic Concepts
 
@@ -17,13 +15,19 @@ An **_Element_** is a piece of data that can be pushed into a _Stack_, and has a
 * Object: `{}`, `{"key": "Value"}`, `{"bob":{"age":32,"married":false,"comments":{}}}`.
 * `null`.
 
-A **_Stack_** represents a linear data structure that contains _Elements_, based on the LIFO (_Last in, First out_) principle, and in which only these operations are allowed:
+A **_Stack_** represents a linear data structure that contains _Elements_, being compatible with both LIFO (_Last in, First out_) and FIFO (_First in, First out_) principles, and in which only these operations are allowed:
 
-* **PUSH**: Introduces an Element into the Stack. 
+* **PUSH**: Introduces an Element on top of the Stack.
+* **BASE**: Introduces an Element at the bottom of the Stack.
 * **POP**: Removes the topmost Element of the Stack.
 * **PEEK**: Returns the topmost Element of the Stack, but this is not modified.
-* **SIZE**: Returns the size of the Stack.
 * **FLUSH**: Delete all Elements of the Stack, leaving it empty.
+* **ROTATE**: Moves the bottommost Element on top of the Stack.
+* **BLOCK**: Blocks mutable operations on the Stack.
+* **UNBLOCK**: Allow mutable operations on the Stack.
+* **SIZE**: Returns the size of the Stack.
+* **EMPTY**: Returns whether the Stack is empty.
+* **FULL**: Returns whether the Stack reached the size limit when this is set.
 
 Every _Stack_ has a name and an unique identifier.
 
@@ -35,7 +39,7 @@ We'll know as **_Pila_** the super object that will contain and handle all _Data
 
 ### Database Model
 
-As of now, **piladb** writes into memory only, and runs as a single server. This means that it doesn't persist data on disk and is not able to replicate its content to other **piladb** instances. If the server is shutdown, all data is flushed and it would require a fresh restart.
+As of now, **piladb** writes into memory only, using a thread-safe model, and runs as a single server. This means that it doesn't persist data on disk and is not able to replicate its content to other **piladb** instances. If the server is shutdown, all data is flushed after giving a time to pending operation to finish.
 
 Every operation applied to a **Stack** has a O(1) complexity, and will block further incoming or concurrent operations, which ensures consistent responses within a reasonable amount of time.
 

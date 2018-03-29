@@ -60,9 +60,9 @@ pilad -h
 
 Keep in mind that `piladb_download` command will store the `pilad` binary into `$HOME/bin`, and will add this directory to `$PATH`.
 
-### Go installer
+### From source
 
-> Requirements: `git` and [Go](https://golang.org/dl/) +1.6 installed, and `GOPATH` setup.
+> Requirements: `git` and [Go](https://golang.org/dl/) +1.8 installed, and `GOPATH` setup.
 
 Download and install the project with:
 
@@ -74,7 +74,7 @@ You will find the `pilad` binary file into `$GOPATH/bin` with the right permissi
 
 ### Docker
 
-> Requirements: [Docker](https://www.docker.com/products/overview) installed.
+> Requirements: [Docker](https://docs.docker.com/install/) installed.
 
 You can execute `pilad` from a Docker container, so you don't to install or depend on Go. With Docker configured, execute:
 
@@ -90,7 +90,7 @@ This will bootstrap a `pilad` instance, listening on a the Port number set with 
 
 ## For Developers 🔧
 
-> Requirements: `git` and [Go](https://golang.org/dl/) +1.6 installed, and `GOPATH` setup.
+> Requirements: `git` and [Go](https://golang.org/dl/) +1.8 installed, and `GOPATH` setup.
 
 If you want to develop or play with **piladb** you need to download the source code using Go:
 
@@ -118,16 +118,3 @@ make bash  # connect into the container
 ```
 
 You are in! Now run `ls -al`, `vim` or `make all` to check that you have indeed all you need inside the container.
-
-
-
-
-
-
-
-
-
-
-
-
-
